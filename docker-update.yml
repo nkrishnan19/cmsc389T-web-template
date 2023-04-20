@@ -1,0 +1,24 @@
+name: Update Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v2
+      with:
+        ref: main
+    - name: Copy Files to TerpConnect
+      uses: appleboy/scp-action@master
+      with:
+        host: terpconnect.umd.edu
+        username: ${{ secrets.TERP_USERNAME }}
+        key: ${{ secrets.TERP_PRIVATE_KEY }}
+        port: 22
+        source: ./
+        target: /terpconnect.umd.edu/users/d/i/ayedla1/public_html/webtemplate

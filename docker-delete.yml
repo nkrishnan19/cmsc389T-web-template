@@ -1,0 +1,17 @@
+name: Delete Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  delete-repo:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Delete Files from TerpConnect
+      uses: appleboy/scp-action@master
+      with:
+        host: terpconnect.umd.edu
+        username: ${{ secrets.TERP_USERNAME }}
+        key: ${{ secrets.TERP_PRIVATE_KEY }}
+        port: 22
+        script: rm -rf /terpconnect.umd.edu/users/d/i/ayedla1/public_html/webtemplate
