@@ -33,7 +33,7 @@ volumes:
     driver_opts:
       type: none
       #fill out your absolute path to your folder here
-      device: /Users/13018/Desktop/Junior Sem 2/389t/cmsc389T-web-template
+      device: /Users/13018/Desktop/JuniorSem2/389t/cmsc389T-web-template
       o: bind
 
 networks:
